@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <title></title>
+</head>
+<body  topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" background="latar.jpg">
+  <div class="wrapper">
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #FFD700">
+      <a class="navbar-brand" href="#"><h1>Bojongsoang University</h1></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Joenavbar" aria-controls="Joenavbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="Joenavbar">
+        <ul class="navbar-nav mr-auto"></ul>
+        <ul class="navbar-nav navbar-right">
+            <li class="nav-item">
+            <a class="nav-link" href="<?php echo site_url('Home');?>">Beranda</a>
+            <li class="nav-item dropdown">
+           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Nilai
+           </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Lihat Nilai</a>
+            </div>
+          </li>
+            <li class="nav-item dropdown">
+           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Jadwal
+           </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Jadwal Perkuliahan</a>
+              <a class="dropdown-item" href="#">Jadwal Ujian</a>
+              <a class="dropdown-item" href="#">Absensi</a>
+        </div>
+      </li>
+            <li class="nav-item dropdown">
+           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Registrasi
+           </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="<?php echo site_url('Registrasi');?>">Registrasi Mata Kuliah</a>
+              <a class="dropdown-item" href="<?php echo site_url('Registrasi/Status');?>">Status Registrasi</a>
+        </div>
+      </li>
+            <li class="nav-item dropdown">
+           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Pembayaran
+           </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="<?php echo site_url('Pembayaran');?>">Detail Pembayaran</a>
+              <a class="dropdown-item" href="<?php echo site_url('Pembayaran/Tagihan');?>">Tagihan</a>
+              <a class="dropdown-item" href="<?php echo site_url('Pembayaran/Konfirmasi');?>">Konfirmasi Pembayaran</a>
+              <a class="dropdown-item" href="<?php echo site_url('Pembayaran/Keterlambatan');?>">Keterlambatan Registrasi</a>
+        </div>
+      </li>
+            <li class="nav-item">
+            <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="<?php echo base_url();?>Asset/propil.png" width="30px" height="30px">
+            Profile
+            </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="<?php echo site_url('Profile');?>">Lihat Profile</a>
+              <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Log Out</a>
+              </div>
+            </li>
+          </ul>
+      </div>
+    </nav>
+  </div>
+  <div class="container">
+    <h2>Pembayaran</h2>
+    <ul class="nav nav-tabs">
+      <li class="active"><a data-toggle="tab" href="#home">Data Pembayaran</a></li>
+      <li><a data-toggle="tab" href="#menu1">Data Denda Registrasi</a></li>
+    </ul>
+    <div class="tab-content">
+      <div id="home" class="tab-pane fade in active">
+        <br><h3><strong>Data Mahasiswa</strong></h3>
+        <p>
+         <table>
+          <tbody>
+            <tr>
+              <td style="width:200px;">
+                <b>NIM</b>
+              </td>
+              <td>1301164070</td>
+            </tr>
+            <tr>
+              <td>
+                <b>Nama</b>
+              </td>
+              <td>Salwa Salsabila</td>
+            </tr>
+            <tr>
+              <td>
+                <b>Program Studi</b>
+              </td>
+              <td>S1 Teknik Informatika</td>
+            </tr>
+            <tr>
+              <td>
+                <b>Fakultas</b>
+              </td>
+              <td>Informatika</td>
+            </tr>          
+            <tr>
+              <td>
+                <b>Status</b>
+              </td>
+              <td>Mahasiswa</td>
+            </tr>          
+            <tr>
+              <td>
+                <b>Kelas</b>
+              </td>
+              <td>IF 40-04</td>
+            </tr>          
+            <tr>
+              <td>
+                <b>Angkatan</b>
+              </td>
+              <td>2016/2017</td>
+            </tr>          
+            <tr>
+              <td>
+                <b>Tahun Ajar</b>
+              </td>
+              <td>2018/2019 Ganjil</td>
+            </tr>
+          </tbody>
+         </table>
+        <p>
+        <div class="card">
+          <div class="col-sm-12">
+            <div style="text-align: justify;"><p><h5><strong> Data Tagihan</strong></h5>
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Tahun Ajaran/Semester</th>
+                    <th>Semester Perkuliahan</th>
+                    <th>UP3</th>
+                    <th>SDP2</th>
+                    <th>BPP Paket</th>
+                    <th>BPP Non Paket</th>
+                    <th>SKS</th>
+                    <th>Perpustakaan</th>
+                    <th>Denda</th>
+                    <th>Uang Status</th>
+                    <th>Asuransi</th>
+                    <th>Asrama</th>
+                    <th>Total</th>
+                    <th>Potongan</th>  
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>16/17 - Ganjil</td>
+                    <td>1</td>
+                    <td>10.000.000</td>
+                    <td>20.000.000</td>
+                    <td>8.000.000</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>150.000</td>
+                    <td>2.500.000</td>
+                    <td>40.650.000</td>
+                    <td>2.000.000</td>
+                  </tr>
+                  <tr>
+                    <td>16/17 - Genap</td>
+                    <td>2</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>8.000.000</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>150.000</td>
+                    <td>0</td>
+                    <td>8.150.000</td>
+                    <td>0</td>
+                  </tr>
+                  <tr>
+                    <td>17/18 - Ganjil</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>8.000.000</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>150.000</td>
+                    <td>0</td>
+                    <td>8.150.000</td>
+                    <td>0</td>
+                  </tr>
+                  <tr>
+                    <td>17/18 - Genap</td>
+                    <td>4</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>8.000.000</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>150.000</td>
+                    <td>0</td>
+                    <td>8.150.000</td>
+                    <td>0</td>
+                  </tr>
+                  <tr>
+                    <td>18/19 - Ganjil</td>
+                    <td>5</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>8.000.000</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>150.000</td>
+                    <td>0</td>
+                    <td>8.150.000</td>
+                    <td>0</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">Total Tagihan</td>
+                    <td>10.000.000</td>
+                    <td>20.000.000</td>
+                    <td>40.000.000</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>750.000</td>
+                    <td>2.500.000</td>
+                    <td>73.250.000</td>
+                    <td>2.000.000</td>
+                  </tr>
+                </tbody>
+              </table><br><br>
+            </div>
+          </div> 
+        </div><br>
+      </div><br><br>
+      <div id="menu1" class="tab-pane fade">
+        <h3><strong>Data Denda Registrasi</strong></h3>
+        <div class="card">
+          <div class="col-sm-12"><br>
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>NIM</th>
+                      <th>Tahun Ajar</th>
+                      <th>Semester</th>
+                      <th>Hari</th>
+                      <th>Jumlah</th>
+                      <th>Batas Waktu</th>
+                      <th>Status Denda</th>
+                      <th>Alasan</th>
+                      <th>Catatan</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td colspan="9"><div style="text-align: center;"> Data Denda Tidak Ada </div></td>
+                    </tr>
+                  </tbody>
+                </table><br><br>
+            </div>
+          </div><br><br>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
