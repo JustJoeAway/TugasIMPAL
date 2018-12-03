@@ -13,7 +13,7 @@
 			$this->db->where('id', $id);
 			$this->db->delete('jadwal');
 		}
-public function edit_jadwal($data, $id)
+	public function edit_jadwal($data, $id)
 		{
 			
 
@@ -32,4 +32,5 @@ public function edit_jadwal($data, $id)
 			$this->db->where('id', $id);
 			$this->db->update('jadwal', $profile);
 		}	
+	}
 ?>
