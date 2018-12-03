@@ -33,5 +33,22 @@ Class Home extends CI_Controller
 	{
         $this->load->view('artikel6');
     }
+    public function Jadwal()
+    {
+        $this->load->view('jadwalperkuliahan');
+    }
+
+    public function Nilai()
+    {
+        $this->load->view('lihatnilai');
+    }
+    public function Login()
+    {
+        $this->load->view('formlogin');
+    }
+    public function InsertNilai()
+    {
+        $this->load->view('insertnilai');
+    }
 }
 ?>

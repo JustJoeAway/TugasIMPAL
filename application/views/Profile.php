@@ -21,7 +21,7 @@
 <body  topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" background="latar.jpg">
   <div class="wrapper">
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #FFD700">
-      <a class="navbar-brand" href="#"><h1>Bojongsoang University</h1></a>
+      <a class="navbar-brand" href="<?php echo site_url('Home');?>"><h3>Bojongsoang University</h3></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Joenavbar" aria-controls="Joenavbar" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -36,7 +36,9 @@
             Nilai
            </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Lihat Nilai</a>
+              <a class="dropdown-item" href="<?php echo site_url('Nilai_C');?>">Lihat Nilai</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="<?php echo site_url('insertnilai_C');?>">Insert Nilai</a>
             </div>
           </li>
             <li class="nav-item dropdown">
@@ -44,9 +46,8 @@
             Jadwal
            </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Jadwal Perkuliahan</a>
-              <a class="dropdown-item" href="#">Jadwal Ujian</a>
-              <a class="dropdown-item" href="#">Absensi</a>
+              <a class="dropdown-item" href="<?php echo site_url('Jadwal_C');?>">Jadwal Perkuliahan</a>
+              
         </div>
       </li>
             <li class="nav-item dropdown">
@@ -77,7 +78,7 @@
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="<?php echo site_url('Profile');?>">Lihat Profile</a>
               <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Log Out</a>
+                <a class="dropdown-item" href="<?php echo site_url('Akun_C/logout');?>">Log Out</a>
               </div>
             </li>
           </ul>
