@@ -46,9 +46,13 @@ Class Home extends CI_Controller
     {
         $this->load->view('formlogin');
     }
-    public function InsertNilai()
+    public function insertnilai()
     {
         $this->load->view('insertnilai');
+    }
+     public function insertjadwal()
+    {
+        $this->load->view('insertjadwal');
     }
 }
 ?>

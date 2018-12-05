@@ -15,11 +15,10 @@
 <body  topmargin="0" leftmargin="0" marginwidth="0" marginheight="0">
   <div class="wrapper">
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #FFD700">
-      <a class="navbar-brand" href="<?php echo site_url('Home');?>"><h3>Bojongsoang University</h3></a>
+      <a class="navbar-brand" href="#"><h1>Bojongsoang University</h1></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Joenavbar" aria-controls="Joenavbar" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-
       <div class="collapse navbar-collapse" id="Joenavbar">
         <ul class="navbar-nav mr-auto"></ul>
         <ul class="navbar-nav navbar-right">
@@ -31,7 +30,6 @@
            </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="<?php echo site_url('Nilai_C');?>">Lihat Nilai</a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="<?php echo site_url('insertnilai_C');?>">Insert Nilai</a>
             </div>
           </li>
@@ -41,6 +39,7 @@
            </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="<?php echo site_url('Jadwal_C');?>">Jadwal Perkuliahan</a>
+             <a class="dropdown-item" href="<?php echo site_url('insertjadwal_C');?>">Masukkan Jadwal Mahasiswa</a> 
               
         </div>
       </li>
@@ -87,14 +86,9 @@
             <div style="text-align: justify;"><p><h5><strong>Masukkan Nilai</strong></h5>
               <table class="table table-bordered">
                 <thead>
-                  <tr>
-                    <th>Kode Mata Kuliah</th>
-                    <th>Nama Mata Kuliah</th>
-                    <th>SKS</th>
-                    <th>Indeks Nilai</th> 
-                  </tr>
+                 
                 </thead>
-                <form action="<?php echo base_url(). 'insertnilai_C/add'; ?>" method="post">
+                <form action="<?php echo base_url().'index.php/insertnilai_C/add'; ?>" method="post">
 		<table style="margin:20px auto;">
 			<tr>
 				<td>NIM</td>
@@ -105,13 +99,13 @@
 				<td><input type="text" name="nama"></td>
 			</tr>
 			<tr>
-				<td>Matkul</td>
-				<td><input type="text" name="matkul"></td>
+				<td>Nilai</td>
+				<td><input type="text" name="nilai"></td>
 			</tr>
-			<tr>
-				<td>Indeks</td>
-				<td><input type="text" name="indeks"></td>
-			</tr>
+      <tr>
+        <td>Indeks</td>
+        <td><input type="text" name="indeks"></td>
+      </tr>
 			<tr>
 				<td></td>
 				<td><input type="submit" value="Tambah"></td>

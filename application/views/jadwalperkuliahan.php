@@ -13,12 +13,12 @@
   <title></title>
 </head>
 <body  topmargin="0" leftmargin="0" marginwidth="0" marginheight="0">
-  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #FFD700">
-      <a class="navbar-brand" href="<?php echo site_url('Home');?>"><h3>Bojongsoang University</h3></a>
+  <div class="wrapper">
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #FFD700">
+      <a class="navbar-brand" href="#"><h1>Bojongsoang University</h1></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Joenavbar" aria-controls="Joenavbar" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-
       <div class="collapse navbar-collapse" id="Joenavbar">
         <ul class="navbar-nav mr-auto"></ul>
         <ul class="navbar-nav navbar-right">
@@ -29,9 +29,7 @@
             Nilai
            </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="<?php echo site_url('Nilai_C');?>">Lihat Nilai</a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="<?php echo site_url('insertnilai_C');?>">Insert Nilai</a>
+              <a class="dropdown-item" href="#">Lihat Nilai</a>
             </div>
           </li>
             <li class="nav-item dropdown">
@@ -39,8 +37,9 @@
             Jadwal
            </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="<?php echo site_url('Jadwal_C');?>">Jadwal Perkuliahan</a>
-              
+              <a class="dropdown-item" href="<?php echo site_url('Home/Jadwal');?>">Jadwal Perkuliahan</a>
+              <a class="dropdown-item" href="#">Jadwal Ujian</a>
+              <a class="dropdown-item" href="#">Absensi</a>
         </div>
       </li>
             <li class="nav-item dropdown">
@@ -92,6 +91,9 @@
                     <th>Mata Kuliah</th>
                     <th>Ruangan</th>
                     <th>Jam</th> 
+                    <th>SKS</th>
+                    <th>Kode Matakuliah</th>
+                    <th>Action</th>
                   </tr>
                 </thead>
 
@@ -102,9 +104,13 @@
                     <td><?php echo $item->Nama_M; ?></td>
                     <td><?php echo $item->Ruangan; ?></td>
                     <td><?php echo $item->Waktu; ?></td>
+                    <td><?php echo $item->SKS; ?></td>
+                    <td><?php echo $item->Kode_M; ?></td>
+                    <td>
                     <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#edit<?php echo $item->id; ?>"><i class="glyphicon glyphicon-pencil"></i></button>
+                    <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#hapus<?php echo $item->id; ?>"><i class="glyphicon glyphicon-trash"></i></button>
+                    </td>
                   </tr>
-                  <?php endforeach; ?>
                 </tbody>
                 <div id="edit<?php echo $item->id; ?>" class="modal fade" role="dialog">
                         <!--                    echo kan php dari foreach di atas dengan objek nim ke dalam id edit-->
@@ -112,19 +118,27 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal"></button>
-                                    <h4 class="modal-title">Edit Data Mahasiswa</h4>
+                                    <h4 class="modal-title">Edit Jadwal Perkuliahan</h4>
                                 </div>
-                                <?php echo form_open("Jadwal_C/edit"); ?>
+                                <?php echo form_open("Jadwal_C/edit/"); ?>
                                 <div class="modal-body">
                                     <div class="form-group">
-                                        <label class="control-label" for="nim">ID</label>
-                                        <input type="text" class="form-control" disabled value="<?php echo $item->id;?>" id="id">
-                                        <input type="hidden" name="nim" class="form-control" value="<?php echo $item->id;?>" id="id" required>
+                                        <label class="control-label" for="nim">Kode Matkul</label>
+                                        <input type="text" class="form-control" disabled value="<?php echo $item->Kode_M;?>" id="id">
+                                        <input type="hidden" name="kodem" class="form-control" value="<?php echo $item->Kode_M;?>" id="kodem" required>
 
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label" for="Indeks">Indeks</label>
-                                        <input type="text" name="Indeks" class="form-control" value="<?php echo $item->Indeks;?>" id="Indeks" required>
+                                        <label class="control-label" for="Indeks">Nama Matkul</label>
+                                        <input type="text" name="namem" disabled class="form-control" value="<?php echo $item->Nama_M;?>" id="namem" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" for="Indeks">Waktu</label>
+                                        <input type="text" name="waktu" class="form-control" value="<?php echo $item->Waktu;?>" id="waktu" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" for="Indeks">Ruangan</label>
+                                        <input type="text" name="ruangan" class="form-control" value="<?php echo $item->Ruangan;?>" id="ruangan" required>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
@@ -135,6 +149,22 @@
                             </div>
                         </div>
                     </div>
+
+                    <div id="hapus<?php echo $item->id; ?>" class="modal fade" role="dialog">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal"></button>
+                                    <h4 class="modal-title">Anda Ingin Menghapus?</h4>
+                                    <?php echo form_open("Jadwal_C/hapus"); ?>
+                                    <input type="hidden" name="Kode_M" class="form-control" value="<?php echo $item->Kode_M;?>" id="Kode_M" required>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" data-dismiss="modal" class="btn btn-danger">Tidak</button>
+                                    <input type="submit" class="btn btn-primary" name="hapus" value="Hapus">
+                                </div>
+                                <?php echo form_close(); ?>
+                    <?php endforeach; ?>
               </table><br><br>
             </div>
           </div> 

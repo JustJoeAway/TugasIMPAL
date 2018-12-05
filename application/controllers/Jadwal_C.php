@@ -9,9 +9,9 @@
 
 			
 		}
-		public function edit()
-    {
-        $data = $this->input->post(null,TRUE);
+		public function edit(){
+        $this->load->model('Jadwal_M');
+        $data = $this->input->post();
         $edit = $this->Jadwal_M->edit_data($data);
         if($edit){
             $this->session->set_flashdata('alert', 'sukses_edit');
@@ -21,6 +21,13 @@
 
         }
     }
+    public function hapus()
+     {
+        $data = $this->input->post();
+        $this->load->model('Jadwal_M');;
+        $this->Jadwal_M->hapus_data($data);
+        redirect('Jadwal_C');
+     }
 
 	}
 ?>

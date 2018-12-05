@@ -1,27 +1,27 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Home extends CI_Controller {
+
+class insertnilai_C extends CI_Controller {
         public function index()
-        {
-
-            $this->load->model('insertnilai_M');
-            $data['query'] = $this->insertnilai_M->get_all_event();
-            $this->load->view('insertnilai',$data);
+        {$this->load->model('insertnilai_M');
+            $this->load->view('insertnilai');
+            
+            
+            
 
             
         }
-    public function add()
+         public function add()
 	{
-		$data = $this->input->post(null,TRUE);
-		$insert = $this->insertnilai_M->save_data($data);
-        if($insert){
-            $this->session->set_flashdata('alert', 'sukses_insert');
-            redirect('lihatnilai');
-        }else{
-            echo "<script>alert('Gagal Menambahkan Data');</script>";
-        }
+        $this->load->model('insertnilai_M');
+		$nim=$this->input->post('nim');
+        $nama=$this->input->post('nama');
+        $nilai=$this->input->post('nilai');
+        $indeks=$this->input->post('indeks');
+        $this->insertnilai_M->save_data($nim,$nama,$nilai,$indeks);
+        redirect('Nilai_C');
 
 	}
 
 }
+

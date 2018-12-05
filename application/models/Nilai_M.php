@@ -3,18 +3,19 @@
 
 		public function get_all_event()
 		{
-			$this->db->limit(3);
-			$query = $this->db->get('matkul');
+			$query = $this->db->get('nilai');
 			return $query->result();
 		}	
 	
 	public function edit_data($data){
-	    $table = 'matkul';
+	    $table = 'nilai';
         $param = array(
-            "Indeks"=>$data['Indeks'],
-           
+            "nim" => $data['nim'],
+            "nilai"=>$data['nilai'],
+            "indeks"=>$data['indeks']
         );
-        $this->db->where('id', $data['id']);
+        echo $param;
+        $this->db->where('nim', $param['nim']);
         $update = $this->db->update($table,$param);
         if ($update){
             return TRUE;
@@ -23,12 +24,10 @@
         }
 
     }
-    public function delete_data($id){
-        
-       $this->db->where('id', $id);
-       $this->db->delete('matkul');
-
-        
+    public function hapus_data($id){
+        $where = array('nim' => $id['nim']);
+        $this->db->where('nim',$where['nim']);
+        $this->db->delete('nilai');
     }
     
 }

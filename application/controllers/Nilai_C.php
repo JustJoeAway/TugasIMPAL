@@ -9,24 +9,25 @@
 
 			
 		}
-		public function edit($data){
-        $data = $this->input->post(null,TRUE);
+		public function edit(){
+        $this->load->model('Nilai_M');
+        $data = $this->input->post();
         $edit = $this->Nilai_M->edit_data($data);
         if($edit){
             $this->session->set_flashdata('alert', 'sukses_edit');
-            redirect('home/index');
+            redirect('Nilai_C');
         }else{
             echo "<script>alert('Gagal Edit Data');</script>";
 
         }
     }
-    public function hapus($id)
-    {
-       $this->load->model('Nilai_M');
-		$this->Nilai_M->delete_data($id);
-			redirect('Nilai_C');
-
-        }
-    }
+     public function hapus()
+     {
+        $data = $this->input->post();
+        $this->load->model('Nilai_M');;
+        $this->Nilai_M->hapus_data($data);
+        redirect('Nilai_C');
+     }
+}
 	
 ?>

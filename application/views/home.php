@@ -37,7 +37,6 @@
            </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="<?php echo site_url('Nilai_C');?>">Lihat Nilai</a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="<?php echo site_url('insertnilai_C');?>">Insert Nilai</a>
             </div>
           </li>
@@ -47,6 +46,7 @@
            </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="<?php echo site_url('Jadwal_C');?>">Jadwal Perkuliahan</a>
+             <a class="dropdown-item" href="<?php echo site_url('insertjadwal_C');?>">Masukkan Jadwal Mahasiswa</a> 
               
         </div>
       </li>

@@ -88,43 +88,48 @@
               <table class="table table-bordered">
                 <thead>
                   <tr>
-                    <th>Kode Mata Kuliah</th>
-                    <th>Nama Mata Kuliah</th>
-                    <th>SKS</th>
-                    <th>Indeks Nilai</th> 
+                    <th>NIM</th>
+                    <th>Nama</th>
+                    <th>Nilai</th>
+                    <th>Indeks Nilai</th>
+                    <th>Action</th> 
                   </tr>
                 </thead>
                 <tbody>
                 <?php foreach($query as $item): ?>
                   <tr>
-                    <td><?php echo $item->Kode_M; ?></td>
-                    <td><?php echo $item->Nama_M; ?></td>
-                    <td><?php echo $item->SKS; ?></td>
-                    <td><?php echo $item->Indeks; ?></td>
-                  </tr><button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#edit<?php echo $item->id; ?>"><i class="glyphicon glyphicon-pencil"></i></button>
-                  <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#hapus<?php echo $item->id; ?>"><i class="glyphicon glyphicon-trash"></i></button>
+                    <td><?php echo $item->nim; ?></td>
+                    <td><?php echo $item->nama; ?></td>
+                    <td><?php echo $item->nilai; ?></td>
+                    <td><?php echo $item->indeks; ?></td>
+                    <td>
+                  <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#edit<?php echo $item->nim; ?>"><i class="glyphicon glyphicon-pencil"></i></button>
+                  <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#hapus<?php echo $item->nim; ?>"><i class="glyphicon glyphicon-trash"></i></button>
+                    </td>
                   </tr>
-                  <?php endforeach; ?>
-                </tbody>
-                <div id="edit<?php echo $item->id; ?>" class="modal fade" role="dialog">
+                <div id="edit<?php echo $item->nim; ?>" class="modal fade" role="dialog">
                         <!--                    echo kan php dari foreach di atas dengan objek nim ke dalam id edit-->
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal"></button>
-                                    <h4 class="modal-title">Edit Data Mahasiswa</h4>
+                                    <h4 class="modal-title">Edit Data Nilai</h4>
                                 </div>
-                                <?php echo form_open("Nilai_C/edit"); ?>
+                                <?php echo form_open("Nilai_C/edit/"); ?>
                                 <div class="modal-body">
                                     <div class="form-group">
-                                        <label class="control-label" for="nim">ID</label>
-                                        <input type="text" class="form-control" disabled value="<?php echo $item->id;?>" id="id">
-                                        <input type="hidden" name="nim" class="form-control" value="<?php echo $item->id;?>" id="id" required>
+                                        <label class="control-label" for="nim">NIM</label>
+                                        <input type="text" class="form-control" disabled value="<?php echo $item->nim;?>" id="id">
+                                        <input type="hidden" name="nim" class="form-control" value="<?php echo $item->nim;?>" id="nim" required>
 
+                                    </div>
+                                      <div class="form-group">
+                                        <label class="control-label" for="Indeks">Nilai</label>
+                                        <input type="text" name="nilai" class="form-control" value="<?php echo $item->nilai;?>" id="nilai" required>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label" for="Indeks">Indeks</label>
-                                        <input type="text" name="Indeks" class="form-control" value="<?php echo $item->Indeks;?>" id="Indeks" required>
+                                        <input type="text" name="indeks" class="form-control" value="<?php echo $item->indeks;?>" id="indeks" required>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
@@ -136,24 +141,25 @@
                             </div>
                         </div>
                     </div>
-
-                    <div id="hapus<?php echo $item->id; ?>" class="modal fade" role="dialog">
+                    
+                    <div id="hapus<?php echo $item->nim; ?>" class="modal fade" role="dialog">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal"></button>
                                     <h4 class="modal-title">Anda Ingin Menghapus?</h4>
                                     <?php echo form_open("Nilai_C/hapus"); ?>
-                                    <input type="hidden" name="id" class="form-control" value="<?php echo $item->id;?>" id="id" required>
+                                    <input type="hidden" name="nim" class="form-control" value="<?php echo $item->nim;?>" id="nim" required>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" data-dismiss="modal" class="btn btn-danger">Tidak</button>
                                     <input type="submit" class="btn btn-primary" name="hapus" value="Hapus">
                                 </div>
                                 <?php echo form_close(); ?>
-                    
+                    <?php endforeach; ?>  
                     
                   </tbody>
+
               </table><br><br>
             </div>
           </div> 
